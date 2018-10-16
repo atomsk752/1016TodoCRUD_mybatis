@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.atomsk.mapper.TodoMapper">
+	<select id="read" resultType="org.atomsk.domain.Todo">
+		select * from todo.tbl_todo
+	</select>
+	<insert id="create" parameterType="org.atomsk.domain.Todo">
+		insert into todo.tbl_todo(title) values (#{title})
+	</insert>
+	<update id="update" parameterType="org.atomsk.domain.Todo">
+		update todo.tbl_todo set title = #{title} where tno = #{tno}
+	</update>
+
+	<delete id="delete" parameterType="org.atomsk.domain.Todo">
+		delete from todo.tbl_todo where tno = #{tno}
+	</delete>
+
+</mapper>
